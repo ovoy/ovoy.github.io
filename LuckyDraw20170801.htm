@@ -1,330 +1,685 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta name="Excel Workbook Frameset">
-<meta http-equiv=Content-Type content="text/html; charset=big5">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
 <link rel=File-List href="LuckyDraw20170801.files/filelist.xml">
-<![if !supportTabStrip]>
-<link id="shLink" href="LuckyDraw20170801.files/sheet001.htm">
-<link id="shLink" href="LuckyDraw20170801.files/sheet002.htm">
-
-<link id="shLink">
-
-<script language="JavaScript">
-<!--
- var c_lTabs=2;
-
- var c_rgszSh=new Array(c_lTabs);
- c_rgszSh[0] = "����W��";
- c_rgszSh[1] = "���~�C��";
-
-
-
- var c_rgszClr=new Array(8);
- c_rgszClr[0]="window";
- c_rgszClr[1]="buttonface";
- c_rgszClr[2]="windowframe";
- c_rgszClr[3]="windowtext";
- c_rgszClr[4]="threedlightshadow";
- c_rgszClr[5]="threedhighlight";
- c_rgszClr[6]="threeddarkshadow";
- c_rgszClr[7]="threedshadow";
-
- var g_iShCur;
- var g_rglTabX=new Array(c_lTabs);
-
-function fnGetIEVer()
-{
- var ua=window.navigator.userAgent
- var msie=ua.indexOf("MSIE")
- if (msie>0 && window.navigator.platform=="Win32")
-  return parseInt(ua.substring(msie+5,ua.indexOf(".", msie)));
- else
-  return 0;
-}
-
-function fnBuildFrameset()
-{
- var szHTML="<frameset rows=\"*,18\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\""+document.all.item("shLink")[0].href+"\" name=\"frSheet\" noresize>"+
-  "<frameset cols=\"54,*\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\"\" name=\"frScroll\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "<frame src=\"\" name=\"frTabs\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "</frameset></frameset><plaintext>";
-
- with (document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- fnBuildTabStrip();
-}
-
-function fnBuildTabStrip()
-{
- var szHTML=
-  "<html><head><style>.clScroll {font:8pt Courier New;color:"+c_rgszClr[6]+";cursor:default;line-height:10pt;}"+
-  ".clScroll2 {font:10pt Arial;color:"+c_rgszClr[6]+";cursor:default;line-height:11pt;}</style></head>"+
-  "<body onclick=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" onselectstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+" topmargin=0 leftmargin=0><table cellpadding=0 cellspacing=0 width=100%>"+
-  "<tr><td colspan=6 height=1 bgcolor="+c_rgszClr[2]+"></td></tr>"+
-  "<tr><td style=\"font:1pt\">&nbsp;<td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(0);\" onmouseout=\"parent.fnMouseOutScroll(0);\"><a>&#171;</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(0);\" ondblclick=\"parent.fnScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(1);\" onmouseout=\"parent.fnMouseOutScroll(1);\"><a>&lt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(1);\" ondblclick=\"parent.fnScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(2);\" onmouseout=\"parent.fnMouseOutScroll(2);\"><a>&gt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(3);\" onmouseout=\"parent.fnMouseOutScroll(3);\"><a>&#187;</a></td>"+
-  "<td style=\"font:1pt\">&nbsp;<td></tr></table></body></html>";
-
- with (frames['frScroll'].document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- szHTML =
-  "<html><head>"+
-  "<style>A:link,A:visited,A:active {text-decoration:none;"+"color:"+c_rgszClr[3]+";}"+
-  ".clTab {cursor:hand;background:"+c_rgszClr[1]+";font:9pt �s�ө���;padding-left:3px;padding-right:3px;text-align:center;}"+
-  ".clBorder {background:"+c_rgszClr[2]+";font:1pt;}"+
-  "</style></head><body onload=\"parent.fnInit();\" onselectstart=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+
-  " topmargin=0 leftmargin=0><table id=tbTabs cellpadding=0 cellspacing=0>";
-
- var iCellCount=(c_lTabs+1)*2;
-
- var i;
- for (i=0;i<iCellCount;i+=2)
-  szHTML+="<col width=1><col>";
-
- var iRow;
- for (iRow=0;iRow<6;iRow++) {
-
-  szHTML+="<tr>";
-
-  if (iRow==5)
-   szHTML+="<td colspan="+iCellCount+"></td>";
-  else {
-   if (iRow==0) {
-    for(i=0;i<iCellCount;i++)
-     szHTML+="<td height=1 class=\"clBorder\"></td>";
-   } else if (iRow==1) {
-    for(i=0;i<c_lTabs;i++) {
-     szHTML+="<td height=1 nowrap class=\"clBorder\">&nbsp;</td>";
-     szHTML+=
-      "<td id=tdTab height=1 nowrap class=\"clTab\" onmouseover=\"parent.fnMouseOverTab("+i+");\" onmouseout=\"parent.fnMouseOutTab("+i+");\">"+
-      "<a href=\""+document.all.item("shLink")[i].href+"\" target=\"frSheet\" id=aTab>&nbsp;"+c_rgszSh[i]+"&nbsp;</a></td>";
-    }
-    szHTML+="<td id=tdTab height=1 nowrap class=\"clBorder\"><a id=aTab>&nbsp;</a></td><td width=100%></td>";
-   } else if (iRow==2) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1></td><td height=1 class=\"clBorder\"></td>";
-    szHTML+="<td height=1></td><td height=1></td>";
-   } else if (iRow==3) {
-    for (i=0;i<iCellCount;i++)
-     szHTML+="<td height=1></td>";
-   } else if (iRow==4) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1 width=1></td><td height=1></td>";
-    szHTML+="<td height=1 width=1></td><td></td>";
-   }
-  }
-  szHTML+="</tr>";
- }
-
- szHTML+="</table></body></html>";
- with (frames['frTabs'].document) {
-  open("text/html","replace");
-  charset=document.charset;
-  write(szHTML);
-  close();
- }
-}
-
-function fnInit()
-{
- g_rglTabX[0]=0;
- var i;
- for (i=1;i<=c_lTabs;i++)
-  with (frames['frTabs'].document.all.tbTabs.rows[1].cells[fnTabToCol(i-1)])
-   g_rglTabX[i]=offsetLeft+offsetWidth-6;
-}
-
-function fnTabToCol(iTab)
-{
- return 2*iTab+1;
-}
-
-function fnNextTab(fDir)
-{
- var iNextTab=-1;
- var i;
-
- with (frames['frTabs'].document.body) {
-  if (fDir==0) {
-   if (scrollLeft>0) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i-1;
-   }
-  } else {
-   if (g_rglTabX[c_lTabs]+6>offsetWidth+scrollLeft) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<=scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i;
-   }
-  }
- }
- return iNextTab;
-}
-
-function fnScrollTabs(fDir)
-{
- var iNextTab=fnNextTab(fDir);
-
- if (iNextTab>=0) {
-  frames['frTabs'].scroll(g_rglTabX[iNextTab],0);
-  return true;
- } else
-  return false;
-}
-
-function fnFastScrollTabs(fDir)
-{
- if (c_lTabs>16)
-  frames['frTabs'].scroll(g_rglTabX[fDir?c_lTabs-1:0],0);
- else
-  if (fnScrollTabs(fDir)>0) window.setTimeout("fnFastScrollTabs("+fDir+");",5);
-}
-
-function fnSetTabProps(iTab,fActive)
-{
- var iCol=fnTabToCol(iTab);
- var i;
-
- if (iTab>=0) {
-  with (frames['frTabs'].document.all) {
-   with (tbTabs) {
-    for (i=0;i<=4;i++) {
-     with (rows[i]) {
-      if (i==0)
-       cells[iCol].style.background=c_rgszClr[fActive?0:2];
-      else if (i>0 && i<4) {
-       if (fActive) {
-        cells[iCol-1].style.background=c_rgszClr[2];
-        cells[iCol].style.background=c_rgszClr[0];
-        cells[iCol+1].style.background=c_rgszClr[2];
-       } else {
-        if (i==1) {
-         cells[iCol-1].style.background=c_rgszClr[2];
-         cells[iCol].style.background=c_rgszClr[1];
-         cells[iCol+1].style.background=c_rgszClr[2];
-        } else {
-         cells[iCol-1].style.background=c_rgszClr[4];
-         cells[iCol].style.background=c_rgszClr[(i==2)?2:4];
-         cells[iCol+1].style.background=c_rgszClr[4];
-        }
-       }
-      } else
-       cells[iCol].style.background=c_rgszClr[fActive?2:4];
-     }
-    }
-   }
-   with (aTab[iTab].style) {
-    cursor=(fActive?"default":"hand");
-    color=c_rgszClr[3];
-   }
-  }
- }
-}
-
-function fnMouseOverScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[7];
-}
-
-function fnMouseOutScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[6];
-}
-
-function fnMouseOverTab(iTab)
-{
- if (iTab!=g_iShCur) {
-  var iCol=fnTabToCol(iTab);
-  with (frames['frTabs'].document.all) {
-   tdTab[iTab].style.background=c_rgszClr[5];
-  }
- }
-}
-
-function fnMouseOutTab(iTab)
-{
- if (iTab>=0) {
-  var elFrom=frames['frTabs'].event.srcElement;
-  var elTo=frames['frTabs'].event.toElement;
-
-  if ((!elTo) ||
-   (elFrom.tagName==elTo.tagName) ||
-   (elTo.tagName=="A" && elTo.parentElement!=elFrom) ||
-   (elFrom.tagName=="A" && elFrom.parentElement!=elTo)) {
-
-   if (iTab!=g_iShCur) {
-    with (frames['frTabs'].document.all) {
-     tdTab[iTab].style.background=c_rgszClr[1];
-    }
-   }
-  }
- }
-}
-
-function fnSetActiveSheet(iSh)
-{
- if (iSh!=g_iShCur) {
-  fnSetTabProps(g_iShCur,false);
-  fnSetTabProps(iSh,true);
-  g_iShCur=iSh;
- }
-}
-
- window.g_iIEVer=fnGetIEVer();
- if (window.g_iIEVer>=4)
-  fnBuildFrameset();
-//-->
-</script>
-<![endif]><!--[if gte mso 9]><xml>
- <x:ExcelWorkbook>
-  <x:ExcelWorksheets>
-   <x:ExcelWorksheet>
-    <x:Name>����W��</x:Name>
-    <x:WorksheetSource HRef="LuckyDraw20170801.files/sheet001.htm"/>
-   </x:ExcelWorksheet>
-   <x:ExcelWorksheet>
-    <x:Name>���~�C��</x:Name>
-    <x:WorksheetSource HRef="LuckyDraw20170801.files/sheet002.htm"/>
-   </x:ExcelWorksheet>
-  </x:ExcelWorksheets>
-  <x:Stylesheet HRef="LuckyDraw20170801.files/stylesheet.css"/>
-  <x:WindowHeight>12650</x:WindowHeight>
-  <x:WindowWidth>22260</x:WindowWidth>
-  <x:WindowTopX>0</x:WindowTopX>
-  <x:WindowTopY>0</x:WindowTopY>
-  <x:ProtectStructure>False</x:ProtectStructure>
-  <x:ProtectWindows>False</x:ProtectWindows>
- </x:ExcelWorkbook>
-</xml><![endif]-->
+<style id="LuckyDraw20170801_20567_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font520567
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:新細明體, serif;
+	mso-font-charset:136;}
+.xl6320567
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:新細明體, serif;
+	mso-font-charset:136;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:#E2EFDA;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6420567
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:新細明體, serif;
+	mso-font-charset:136;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6520567
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:新細明體, serif;
+	mso-font-charset:136;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6620567
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:新細明體, serif;
+	mso-font-charset:136;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6720567
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:新細明體, serif;
+	mso-font-charset:136;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:yellow;
+	mso-pattern:black none;
+	white-space:nowrap;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:新細明體, serif;
+	mso-font-charset:136;
+	mso-char-type:none;}
+-->
+</style>
 </head>
 
-<frameset rows="*,39" border=0 width=0 frameborder=no framespacing=0>
- <frame src="LuckyDraw20170801.files/sheet001.htm" name="frSheet">
- <frame src="LuckyDraw20170801.files/tabstrip.htm" name="frTabs" marginwidth=0 marginheight=0>
- <noframes>
-  <body>
-   <p>�������ϥήج[�A���O�z���s�������䴩�ج[�C</p>
-  </body>
- </noframes>
-</frameset>
+<body>
+<!--[if !excel]>　　<![endif]-->
+<!--下列資訊是由 Microsoft Excel 網頁發佈精靈所產生。-->
+<!--如果由 Excel 重新發佈相同的項目時，在 DIV 標籤間的所有資訊將會被取代。-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="LuckyDraw20170801_20567" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=747 class=xl6420567
+ style='border-collapse:collapse;table-layout:fixed;width:561pt'>
+ <col class=xl6420567 width=193 style='mso-width-source:userset;mso-width-alt:
+ 7424;width:145pt'>
+ <col class=xl6420567 width=71 style='mso-width-source:userset;mso-width-alt:
+ 2739;width:54pt'>
+ <col class=xl6420567 width=483 style='mso-width-source:userset;mso-width-alt:
+ 18534;width:362pt'>
+ <tr class=xl6620567 height=23 valign=middle style='mso-height-source:userset;
+  height:17.25pt'>
+  <td height=23 class=xl6320567 bgcolor="#E2EFDA" align=center width=193
+  style='height:17.25pt;width:145pt'><b>FB name</b></td>
+  <td class=xl6320567 bgcolor="#E2EFDA" align=center width=71 style='border-left:
+  none;width:54pt'><b>中獎機率</b></td>
+  <td class=xl6320567 bgcolor="#E2EFDA" align=center width=483
+  style='border-left:none;width:362pt'><b>獎品願望順序</b></td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>廖柔安</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,G,D,C,B,A,I,E,T,Z,X,Q</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>LAMP HANA</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,D,E,V,B,G,X</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>卓卿雲</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>E,G L,R,W</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>韓璃</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,D,E,G,C,B,A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>鄭芯卉</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,D,E,B,C,A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>吳佳宣</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>G F B D C N Y L
+  X T M D 0 E I Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>郭昆諺</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>W,S,Q,F,C</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>趙翊芳</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,B,A,I,M,R,U,W,Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>謝仲齊</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>E，G</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>EDEREN
+  MISHER LANYAN</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>A.B.C.D.J.K.M.N.T.Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>任雲飛</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F，T，D，S，A，G，O，V</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>YI WEN
+  CHEN</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>U,D,E,W,F</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>江文惠</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>E,A,F,G,I,C,B,D</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>許恆昕</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>G,F,E,D,C,B,A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>陳育寧</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>M、O、N、T、F、C、D、B、Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>黃崑輝</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>J, K, W, Z, R,
+  G, L, M, N, S</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>盧琬欣</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>G,D,B,E,C,F,A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>ARA FOX</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>V,E,B,A,F,R,T,Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>連心瑀</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>G,B,C,A,N,Z,K,S,R,Y,U</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>陳彥臻</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>TRQOPNWVZSLVKJMVXIHGFDE</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>夜達魯</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F→C→R→X→Z→A→B→D→E</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>曾巧恩</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T,X,O,D,B,F,P,R,M</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>陳品蓁</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,G,E,B,C,D,A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>李惠文</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'><font
+  color="#000000">　</font></td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>ERIC WANG</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T J K N U W Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>謝曜光</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T,X,O,D,G,F,P,S,R,L,W,C,N,J,K,M,Q,Z,Y,E,B,A,V,I,H,U</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>王鋼</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>HFABICDENQYZ</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>戴至誠</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>J,K,N,U,X</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>李承霖</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>R</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>佟方椋</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>D&gt;F&gt;O&gt;P&gt;B&gt;C&gt;G&gt;A&gt;E</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>楓月</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F➡D➡C➡B➡E➡G➡A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>柉妧鵀</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>X</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>風精 の主</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>X，L，M，S，O，R，N，Z，W，P，Y，U</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>沒有人</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>W,X,T,Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>傅慧晴</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F B H I G J K</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>JANE
+  LIU<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,D,G,C,B,A,E</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>林芳</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F-G-E-D-C-B-A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>藍沙克</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'><span
+  style='mso-spacerun:yes'> </span>F G A B C D E H I J K L M N O P Q RS T U V W
+  X Y Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>楚櫻</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F G B D C N Y L
+  X T M O E I Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>周展延</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F D A E B C G X
+  Y</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>Julie Lu</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>G, N, Y, X, S,
+  F, I, J, B, A, V, U, P</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>周晏辰</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F D A E B C G X
+  Y1</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>江麗娟</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F D A E B C G X
+  Y</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>周豐榮</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F D G X Y A E B
+  C</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>早紗</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>W&gt;T&gt;Q&gt;R&gt;S&gt;D&gt;U</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>張今源</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T. R. N. M. O.
+  P. S. L. Q.Z.U.W.V</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>黃湘雁</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F、B、R、D、S、C、A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>宋佳樺</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F、B、R、D、S、C、A</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>JUNE LAN</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>X&gt;F&gt;E</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>荼藜</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F, X, R, I, A,
+  C, D, E, B</td>
+ </tr>
+ <tr height=19 valign=middle style='page-break-before:always;height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>七空</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>Z,T,O,J,K,M,V,P,N,S,R,L,X,Y,U</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>尤小滿</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>L,R</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>文祈勝</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>D E</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>呂聿婷</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>H</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>CAT MEOW</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>N,R,E,V,F,W,T,X,U,K,J,Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>陳宇馨</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F E C A D B G Z
+  W L Z M R Z N S I J K H U V O P T Y Q X</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>咖啡</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>E F B G A C D H
+  I Y R</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>許申霖</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F D A E B C G X
+  Y</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>MIAO YI
+  ZHENG</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F-G-X-C-W-Z-E-D-R</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>林子勻</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>Y, Z, E, G,U,C,V</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>呂旻翰</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>V</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>王志哲</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>W，Z，K，F，X</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>米緋依</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F&gt;O&gt;Z&gt;B&gt;G&gt;C&gt;T&gt;X&gt;E&gt;R&gt;W</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>衛宥齊</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F&gt;T&gt;D&gt;O&gt;P&gt;R&gt;Q&gt;G&gt;M&gt;A&gt;N&gt;E&gt;V&gt;C&gt;W&gt;Z&gt;B&gt;K&gt;J&gt;I&gt;H&gt;U&gt;X&gt;Y&gt;L&gt;S</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>蘇煥凱</td>
+  <td class=xl6720567 bgcolor="#FFFF00" align=right style='border-top:none;
+  border-left:none'><font color="#000000">10</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F,W,Z，C,I,J,K,H,U</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>律蓉</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F.C.G.R.N.X.B.Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>吳育鵬</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">2</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T&gt;O&gt;X</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>WEI
+  CHI<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T F O G M S Q R
+  J L K</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>孫逸文</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>t,f,x,y,g,d,s,r,a,z,c</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>孫嘉妤</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>t,f,x,y,g,d,s,r,a,c,z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>王碧妃</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T.F.X
+  Y.F.D.S.R.A.C.Z.</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>紀至軒</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>C.G.B.D.E.I.H.Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>巫憂愁</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>G.D.B.C.E.I.H.Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>FA FA KOE</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>WXZT</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>愛晴耶</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F.G.B.C.D.E.W.I.H.Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>曾尹彥</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">5</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T S R P O N M L
+  W Z</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>周紘韵</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>FGCBAEDWZXNIHD</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>紀皮兒</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>B D E I H</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>紀春田</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F.G.B.C.D.E.I.H</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>塗塗</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>F Y G B C U A D
+  E</td>
+ </tr>
+ <tr height=19 valign=middle style='height:14.5pt'>
+  <td height=19 class=xl6520567 style='height:14.5pt;border-top:none'>翁祥瑋</td>
+  <td class=xl6520567 align=right style='border-top:none;border-left:none'><font
+  color="#000000">1</font></td>
+  <td class=xl6520567 style='border-top:none;border-left:none'>T.W.F.M.C</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=193 style='width:145pt'></td>
+  <td width=71 style='width:54pt'></td>
+  <td width=483 style='width:362pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
 </html>
